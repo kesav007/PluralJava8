@@ -16,4 +16,8 @@ public interface MyPredicate<T> {
         Objects.requireNonNull(other);
         return t -> this.test(t) && other.test(t);
     }
+
+    default  MyPredicate<T> not() {
+        return (T t) -> !this.test(t);
+    }
 }
